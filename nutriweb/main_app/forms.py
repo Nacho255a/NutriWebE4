@@ -1,4 +1,5 @@
 from django import forms
+from .models import Citas
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
@@ -59,3 +60,8 @@ class RegistroUsuarioForm(UserCreationForm):
             "password1",
             "password2",
         )
+
+class ProgramarCitaForm(forms.ModelForm):
+    class Meta:
+        model = Citas
+        fields = ['RutCliente', 'RutNutricionista', 'FechaCita', 'HoraCita', 'LugarCita']

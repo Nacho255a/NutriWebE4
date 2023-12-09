@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
-from .forms import RegistroUsuarioForm
-from .models import Clientes, UsuariosDelSistema
+from .forms import RegistroUsuarioForm, ProgramarCitaForm
+from .models import Clientes, UsuariosDelSistema, Citas
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
@@ -57,6 +57,19 @@ def inicio_sesion(request):
                 },
             )
     return render(request, "inicio_sesion.html")
+
+
+def programar_cita(request):
+    if request.method == "POST":
+        form = ProgramarCitaForm(request.POST)
+        if form.is_valid():
+            # Guardar la cita en la base de datos
+            cita = form.save()
+            return redirect("ver_perfiles")
+    else:
+        form = ProgramarCitaForm()
+
+    return render(request, "programar_cita.html", {"form": form})
 
 
 # Visualización de Perfiles de Clientes

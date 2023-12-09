@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriWeb - Inicio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #e0f2f1;
+        }
+        .container {
+            text-align: center;
+        }
+        .display-4 {
+            color: #17a2b8;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+    <h2>Programar Cita</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Programar Cita</button>
+    </form>
+{% endblock %}
