@@ -10,30 +10,43 @@ class RegistroUsuarioForm(UserCreationForm):
         label="Rut",
         validators=[
             RegexValidator(
-                regex=r"^\d{1,9}",
+                regex=r"^\d{8,9}",
                 message="El RUT de 8 a 9 dígitos",
                 code="invalid_rut",
             )
         ],
         widget=forms.TextInput(attrs={"type": "number"}),
-        help_text="Requerido. Ingrese su RUT sin puntos ni guión. Por ejemplo: 123456789.",
+        help_text="Ingrese su RUT sin puntos ni guión. Por ejemplo: 123456789.",
     )
     first_name = forms.CharField(
         max_length=30,
         label="Nombre",
         required=True,
-        help_text="Requerido. Máximo 30 caracteres.",
+        help_text="Máximo 30 caracteres.",
     )
     last_name = forms.CharField(
         max_length=30,
         label="Apellido",
         required=True,
-        help_text="Requerido. Máximo 30 caracteres.",
+        help_text="Máximo 30 caracteres.",
     )
     email = forms.EmailField(
         max_length=254,
         required=True,
-        help_text="Requerido. Ingrese una dirección de correo electrónico válida.",
+        help_text="Ingrese una dirección de correo electrónico válida.",
+    )
+    password1 = forms.CharField(
+        label="Contraseña", # Cambia el label a 'Contraseña'
+        max_length=254,
+        required=True,
+        help_text="Máximo 254 caracteres.",
+        widget=forms.PasswordInput,
+    )
+    password2 = forms.CharField(
+        label="Confirmar contraseña", # Cambia el label a 'Confirmar contraseña'
+        max_length=254,
+        required=True,
+        widget=forms.PasswordInput,
     )
 
     class Meta:

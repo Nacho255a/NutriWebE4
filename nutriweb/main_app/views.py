@@ -28,7 +28,7 @@ def PaginaRegistro(request):
                 # Similar para otros tipos de usuarios
                 pass
 
-            return redirect("ver_perfiles")
+            return render(request, "ver_perfiles.html", {"user": user})
     else:
         form = RegistroUsuarioForm()
 

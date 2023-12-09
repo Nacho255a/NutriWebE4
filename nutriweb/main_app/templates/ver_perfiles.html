@@ -37,14 +37,14 @@
 <body>
     {% if user.is_authenticated %}
     <div class="container">
-        <h1>Bienvenido, {{ user.first_name }}</h1>
+        <h1>Bienvenido, {{ user.first_name }} {{user.last_name}}</h1>
         <div class="card">
             <div class="card-header">
                 Información Personal
             </div>
             <div class="card-body">
-                <p>RUT: [RUT]</p>
-                <p>Fecha de Nacimiento: [Fecha de Nacimiento]</p>
+                <p>RUT: {{ user.username }}</p>
+                <p>Fecha de Nacimiento: No especificada</p>
                 <p>Email: {{ user.email }}</p>
                 <!-- Mostrar otros detalles personales -->
             </div>
@@ -56,7 +56,7 @@
             </div>
             <div class="card-body">
                 <ul>
-                    <li>[Fecha de Evaluación] - Peso: [Peso] kg, Altura: [Altura] cm</li>
+                    <li>[Fecha de Evaluación] - Peso: No especificado, Altura: No especificado</li>
                     <!-- Mostrar otros detalles de las evaluaciones -->
                 </ul>
             </div>
@@ -87,7 +87,7 @@
         </div>
     {% endif %}
         <div class="text-center mt-4">
-            <a href="/registro" class="btn btn-primary">Programar Cita</a> <!-- Enlace para programar una cita -->
+            <a href="" class="btn btn-primary">Programar Cita</a> <!-- Enlace para programar una cita -->
         </div>
     </div>
 
