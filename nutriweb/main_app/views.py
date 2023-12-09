@@ -5,6 +5,7 @@ from .models import Clientes, UsuariosDelSistema
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
+
 # Registro de usuarios
 def PaginaRegistro(request):
     if request.method == "POST":
@@ -34,6 +35,7 @@ def PaginaRegistro(request):
 
     return render(request, "pagina_registro.html", {"form": form})
 
+
 # Inicio de sesión
 def inicio_sesion(request):
     if request.method == "POST":
@@ -42,11 +44,20 @@ def inicio_sesion(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return render(request, "ver_perfiles.html", {"user": user})  # Redirige a la página principal después del inicio de sesión
+            return render(
+                request, "ver_perfiles.html", {"user": user}
+            )  # Redirige a la página principal después del inicio de sesión
         else:
             # Agrega un mensaje de error para mostrar en el formulario
-            return render(request, "error_page.html", {"error_message": "Credenciales inválidas. Por favor, inténtalo de nuevo."})
+            return render(
+                request,
+                "error_page.html",
+                {
+                    "error_message": "Credenciales inválidas. Por favor, inténtalo de nuevo."
+                },
+            )
     return render(request, "inicio_sesion.html")
+
 
 # Visualización de Perfiles de Clientes
 @login_required
@@ -54,11 +65,12 @@ def ver_perfiles(request):
     perfiles = Clientes.objects.all()
     return render(request, "ver_perfiles.html", {"perfiles": perfiles})
 
-#Pagina De Error
+
+# Pagina De Error
 def error_page(request):
     error_message = "Ocurrió un error inesperado."
-    return render(request, 'error_page.html', {'error_message': error_message})
+    return render(request, "error_page.html", {"error_message": error_message})
+
 
 def AyudaSoporte(request):
-    return render(request, 'pagina_ayuda_soporte.html')
-
+    return render(request, "pagina_ayuda_soporte.html")
