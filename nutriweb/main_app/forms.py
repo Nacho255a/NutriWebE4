@@ -64,4 +64,4 @@ class RegistroUsuarioForm(UserCreationForm):
 class ProgramarCitaForm(forms.ModelForm):
     class Meta:
         model = Citas
-        fields = ['RutCliente', 'RutNutricionista', 'FechaCita', 'HoraCita', 'LugarCita']
+        fields = ['FechaCita', 'HoraCita', 'LugarCita']
