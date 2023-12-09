@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriWeb - Error</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #e0f2f1;
+        }
+        .container {
+            text-align: center;
+        }
+        .card {
+            margin-top: 30px;
+            width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .card-header {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Error
+            </div>
+            <div class="card-body">
+                <p>Ha ocurrido un error durante el uso de la aplicación.</p>
+                <p>{{ error_message }}</p>
+                <a href="{% url 'inicio' %}" class="btn btn-danger btn-block">Volver al Inicio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

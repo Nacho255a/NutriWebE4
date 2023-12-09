@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Cliente</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #e0f2f1; /* Fondo verde agua */
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .card {
+            background-color: #e0f2f1; /* Fondo verde agua */
+        }
+        .card-header {
+            background-color: #17a2b8; /* Barra de encabezado azul */
+            color: white;
+        }
+        .btn-success {
+            background-color: #28a745; /* Botón verde */
+            border: none;
+        }
+        .btn-primary {
+            background-color: #007bff; /* Botón azul */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <div class="container">
+        <h1>Bienvenido, {{ user.first_name }}</h1>
+        <div class="card">
+            <div class="card-header">
+                Información Personal
+            </div>
+            <div class="card-body">
+                <p>RUT: [RUT]</p>
+                <p>Fecha de Nacimiento: [Fecha de Nacimiento]</p>
+                <p>Email: {{ user.email }}</p>
+                <!-- Mostrar otros detalles personales -->
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                Evaluaciones Nutricionales
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>[Fecha de Evaluación] - Peso: [Peso] kg, Altura: [Altura] cm</li>
+                    <!-- Mostrar otros detalles de las evaluaciones -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                Recomendaciones de Dieta
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>[Fecha de Recomendación] - [Descripción]</li>
+                    <!-- Mostrar otros detalles de las recomendaciones -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                Citas Programadas
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>[Fecha de Cita] - [Hora de Cita] en [Lugar de Cita]</li>
+                    <!-- Mostrar otros detalles de las citas -->
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+        <div class="text-center mt-4">
+            <a href="/registro" class="btn btn-primary">Programar Cita</a> <!-- Enlace para programar una cita -->
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+{% endblock %}

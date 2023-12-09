@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}¿Necesitas Ayuda? - NutriWeb{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #e0f2f1;
+        }
+        .container {
+            text-align: center;
+        }
+        .display-4 {
+            color: #17a2b8;
+        }
+        .lead {
+            color: #6c757d;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border: none;
+            margin-top: 20px;
+        }
+        .footer {
+            margin-top: 50px;
+        }
+        .contact-box,
+        .home-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+    <div class="container mt-4">
+        <h1 class="display-4">¿Necesitas Ayuda?</h1>
+        <p class="lead">Estamos aquí para ayudarte. Contáctanos si tienes alguna pregunta o necesitas asistencia.</p>
+    </div>
+
+    <!-- Contacto -->
+    <div class="container contact-box">
+        <h2>Contacto</h2>
+        <p>Puedes comunicarte con nosotros por correo electrónico.</p>
+        <a class="btn btn-success btn-lg" href="mailto:NutriWeb@soporte.cl" role="button">Contactar Soporte</a>
+    </div>
+
+    <!-- Volver al Inicio -->
+    <div class="container home-box">
+        <h2>Volver al Inicio</h2>
+        <p>Si prefieres volver al inicio, haz clic en el siguiente enlace.</p>
+        <a class="btn btn-success" href="{% url 'inicio' %}" role="button">Volver al Inicio</a>
+    </div>
+
+</body>
+</html>
+
+{% endblock %}
