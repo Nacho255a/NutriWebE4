@@ -25,10 +25,10 @@
         }
     </style>
 </head>
-    <h2>Programar Cita</h2>
+    <h2>Agenda tu hora</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Programar Cita</button>
+        <button type="submit">Reservar Cita</button>
     </form>
 {% endblock %}
